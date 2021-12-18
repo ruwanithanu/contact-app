@@ -1,4 +1,4 @@
-# topo-contact-app
+# topo-contact-app - Front-end project
 
  Topo Solution Contact Application - First React App
  
