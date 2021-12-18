@@ -1,3 +1,10 @@
+# topo-contact-app
+
+ Topo Solution Contact Application - First React App
+ 
+ The Topo Contact App solution is a stand-alone REST API project (.NET CORE API), and a
+front-end project (React)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
