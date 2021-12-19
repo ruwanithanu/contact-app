@@ -1,15 +1,10 @@
-# topo-contact-app - Front-end project
+# topo-contact-app - Front-end Project
 
- Topo Solution Contact Application - First React App
-
-# Topo Contact App
-
-The Topo Contact App solution is a stand-alone REST API project (.NET CORE API), and a
-front-end project (React).
+ The Topo Contact App solution is a stand-alone REST API project (.NET CORE API), and a front-end project (React).
 
 ## App Details
 
-Back-end : C# 
+Back-end : C#
 
 Fron-end : React 
 
@@ -17,26 +12,33 @@ UI : Meterial UI
 ```bash
 npm install @mui/material
 ```
-
 API : axio 
 ```bash
 npm install axios
 ```
 
+
 # Run
 
-Set up database connection string in API project
+1 - Set up database connection string in API project
 
-Run API project in visual studio
+2 - Add-Migration & Update-Database
 
-Run Front-end project in visual code using
+3 - Seed Data for Tag table (Db Script attached (https://github.com/ruwanithanu/TopoContactAPI/blob/4049ff6a2a77235035e5c042a098f0de59c547aa/TopoDataRepository/Resources/DbScript.sql)
+
+4 - Run API project in visual studio
+
+5 - Run Front-end project in visual code using
 ```bash
 npm start run
 ```
 
+6- Import Sample Vcards (Attched in C:\git-repos\TopoContactAPI\TopoContactAPI\TopoDataRepository\Resources\)
+
+
 ## Features
 
-View Contact List 
+View Contact List
 
 Add/Update/Delete Contact from the UI Form
 
@@ -46,11 +48,22 @@ Import vcard and Add/Update Contact
 
 Download vcard
 
+
 ## Postman Documentation
 
 API Endpoints:  [documantation](https://documenter.getpostman.com/view/11326274/UVRAHSPh)
 
-Test in Google Chrome
+Recomanded Google Chrome
+
+
+# Important
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
 
 
 # Getting Started with Create React App - Default
@@ -59,65 +72,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
