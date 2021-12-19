@@ -8,9 +8,9 @@ import VcardList from './VcardList'
 import SendIcon from '@mui/icons-material/Send';
 import ListIcon from '@mui/icons-material/List';
 import RefreshIcon from '@mui/icons-material/Refresh';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import IconButton from '@mui/material/IconButton';
 import Alert from '@mui/material/Alert';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 export default function VcardForm(props) {
   
@@ -113,7 +113,7 @@ const handleUpload = e => {
     data.append('file', file);
     apiEndpoints(ENDPOINTS.VCF).upload(data)
     .then(res => {
-        setAlertMsg('vcard imported successfully');
+        setAlertMsg('Vcard imported successfully');
     })
     .catch(error => console.log(error))    
 }
@@ -310,7 +310,7 @@ const handelValidation = () => {
                     <ButtonGroup>
                         <Input  size="small" accept="image/*" id="file" multiple type="file" onChange={handelFileChange} />
                         <IconButton color="primary" aria-label="upload picture" component="span" onClick={handleUpload}>
-                            <PhotoCamera />
+                            <FileUploadIcon />
                         </IconButton>
                     </ButtonGroup>                   
                 </Grid>
