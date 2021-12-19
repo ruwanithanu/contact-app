@@ -92,7 +92,7 @@ const handleNote = e => {
 
 const handleReset = () => {
     resetFormControls();
-    setFeildDisable();
+    setFeildDisable(false);
 }
 
 const handlePopup = () => {
@@ -117,21 +117,21 @@ const handleUpload = e => {
 const handelValidation = () => {
     let err = {};
     
-    err.firstName = values.firstName !== '' ? "" : "* required";
-    err.lastName = values.lastName !== '' ? "" : "* required";
+    err.firstName = (values.firstName) ? "" : "* required";
+    err.lastName = (values.lastName) ? "" : "* required";
 
     const emailFormat = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
-    err.emailPrimary = values.emailPrimary !== '' && values.emailPrimary.match(emailFormat) ? "" : "* required or invalid";
-    err.emailSecondary = values.emailSecondary === '' ? "" : (values.emailSecondary.match(emailFormat) ? "" : "invalid");
+    err.emailPrimary = (values.emailPrimary) && values.emailPrimary.match(emailFormat) ? "" : "* required or invalid";
+    err.emailSecondary = !(values.emailSecondary) ? "" : (values.emailSecondary.match(emailFormat) ? "" : "invalid");
 
     //const phoneNoFormat = /^\d{10}$/;
     const phoneNoFormat = /(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
-    err.phoneMobileNo = values.phoneMobileNo !== '' && values.phoneMobileNo.match(phoneNoFormat) ? "" : "* required or invalid";
-    err.phoneOfficeNo = values.phoneOfficeNo === '' ? "" : (values.phoneOfficeNo.match(phoneNoFormat) ? "" : "invalid");
-    err.phoneHomeNo = values.phoneHomeNo === '' ? "" : (values.phoneHomeNo.match(phoneNoFormat) ? "" : "invalid");
+    err.phoneMobileNo = (values.phoneMobileNo) && values.phoneMobileNo.match(phoneNoFormat) ? "" : "* required or invalid";
+    err.phoneOfficeNo = !(values.phoneOfficeNo) ? "" : (values.phoneOfficeNo.match(phoneNoFormat) ? "" : "invalid");
+    err.phoneHomeNo = !(values.phoneHomeNo) ? "" : (values.phoneHomeNo.match(phoneNoFormat) ? "" : "invalid");
 
     const webUrlFormat = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-    err.webSiteUrl = values.webSiteUrl === '' ? "" : (values.webSiteUrl.match(webUrlFormat) ? "" : "invalid");
+    err.webSiteUrl = !(values.webSiteUrl) ? "" : (values.webSiteUrl.match(webUrlFormat) ? "" : "invalid");
 
     setErrors({...err});
     return Object.values(err).every(x => x==="");
@@ -292,6 +292,7 @@ const handelValidation = () => {
                         onChange={handleNote}
                         helperText={`${values.note?.length ?? 0 }/${NOTECHARLIMIT}`}
                         margin="normal"
+                        sx={{width: 100 }}
                     />
                 </Grid> 
                 

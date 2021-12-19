@@ -18,3 +18,4 @@
         Select - MUI
         Grid - MUI
         Search - MUI
+        Card - MUI

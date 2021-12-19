@@ -22,12 +22,11 @@ export default function VcardList(props) {
         apiEndpoints(ENDPOINTS.CONTACT).fetchAll()
         .then(res => {
             setContactList(res.data);
-            getDistinctTags(res.data);
             setFilterContactList(res.data);
+            //getDistinctTags(res.data);
         })
         .catch(error => console.log(error))
     },[])
-
     
     //btn trigger
 
@@ -101,7 +100,48 @@ export default function VcardList(props) {
             </IconButton>
         </Paper>
 
-            <Table>
+        <Table>
+
+            <TableBody>
+            {
+                filterContactList.filter(x => x.tag.tagName).map(item => (
+                    <TableRow key={item.contactId}> 
+                        <TableCell>
+                            <Box sx={{ width:'500px', border: 1, borderRadius: 3 }}>
+                                <CardContent>
+                                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                    {item.tag.tagName}
+                                </Typography>
+                                <Typography variant="h5" component="div">
+                                    {item.contactName}
+                                </Typography>
+                                <Typography variant="body2">
+                                    {item.phoneMobileNo} <br />
+                                    {item.emailPrimary} <br />
+                                    {item.webSiteUrl} <br />
+                                    {item.addressPrimary} <br />
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <EditIcon  
+                                    onClick={e => handelUpdate(item.contactId)}                          
+                                    color="primary"/>
+                                <DeleteOutlinedIcon  
+                                    onClick={e => handelDelete(item.contactId)}                          
+                                    color="error"/>
+                                <DownloadIcon  
+                                    onClick={e => handelDownload(item.contactId, item.contactName)}                          
+                                    color="primary"/>
+                            </CardActions>
+                        </Box> 
+                    </TableCell>
+                </TableRow>
+                ))
+            }
+                
+            </TableBody>
+            
+            {/* 
             <TableBody>
                 {
                     uniqueTags.map(itemTag => (
@@ -114,30 +154,6 @@ export default function VcardList(props) {
                                 {
                                     filterContactList.filter(x => x.tag.tagName.includes(itemTag)).map(item => (
                                         <Box>
-                                            <CardContent>
-                                                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                                                    {item.tag.tagName}
-                                                </Typography>
-                                                <Typography variant="h5" component="div">
-                                                    {item.contactName}
-                                                </Typography>
-                                                <Typography variant="body2">
-                                                    {item.phoneMobileNo} <br />
-                                                    {item.emailPrimary} <br />
-                                                    {item.webSiteUrl}
-                                                </Typography>
-                                            </CardContent>
-                                            <CardActions>
-                                                <EditIcon  
-                                                    onClick={e => handelUpdate(item.contactId)}                          
-                                                    color="primary"/>
-                                                <DeleteOutlinedIcon  
-                                                    onClick={e => handelDelete(item.contactId)}                          
-                                                    color="error"/>
-                                                <DownloadIcon  
-                                                    onClick={e => handelDownload(item.contactId, item.contactName)}                          
-                                                    color="primary"/>
-                                            </CardActions>
                                         </Box> 
                                     ))
                                 }
@@ -146,6 +162,7 @@ export default function VcardList(props) {
                     ))
                 }
             </TableBody>
+            */}
         </Table>
       </>
     )

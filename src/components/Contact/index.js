@@ -2,9 +2,7 @@ import React from 'react'
 import VcardForm from './VcardForm'
 import { useForm } from '../../hooks/useForm';
 
-
 const getDefaultModelObject = () => ({
-    "contactId": '',
     "firstName": '',
     "lastName": '', 
     "contactName": '', 
@@ -21,7 +19,7 @@ const getDefaultModelObject = () => ({
 })
 
 /*
-const getDefaultModelObject = () => ({
+const getMockModelObject = () => ({
     "firstName": 'Topo',
     "lastName": 'Solutions', 
     "contactName": 'Topo Solutions', 
