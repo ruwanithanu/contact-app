@@ -10,6 +10,7 @@ import ListIcon from '@mui/icons-material/List';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import IconButton from '@mui/material/IconButton';
+import Alert from '@mui/material/Alert';
 
 export default function VcardForm(props) {
   
@@ -19,6 +20,7 @@ const [ contactId, setContactId ] = useState(0);
 const [ file, setFile ] = useState(null);
 const [ contactListVisibility, setContactListVisibility ] = useState(false);
 const [ feildDisable, setFeildDisable ] = useState(false);
+const [ alertMsg, setAlertMsg ] = useState('');
 const NOTECHARLIMIT = 200;
 
 //custom hooks
@@ -57,10 +59,10 @@ const handleSubmit = (e) => {
         apiEndpoints(ENDPOINTS.CONTACT).create(values)
         .then(res => {
             resetFormControls();
-            alert("Contact save successfully");
-            //window.location.reload(true)
+            setAlertMsg("Contact save successfully");
+            window.location.reload(true)
         })
-        .catch(error => console.log(error))
+        .catch(error => setAlertMsg(error))
     }
 }
 
@@ -93,6 +95,8 @@ const handleNote = e => {
 const handleReset = () => {
     resetFormControls();
     setFeildDisable(false);
+    setErrors({});
+    setAlertMsg('');
 }
 
 const handlePopup = () => {
@@ -109,7 +113,7 @@ const handleUpload = e => {
     data.append('file', file);
     apiEndpoints(ENDPOINTS.VCF).upload(data)
     .then(res => {
-        alert('vcard imported successfully');
+        setAlertMsg('vcard imported successfully');
     })
     .catch(error => console.log(error))    
 }
@@ -124,7 +128,6 @@ const handelValidation = () => {
     err.emailPrimary = (values.emailPrimary) && values.emailPrimary.match(emailFormat) ? "" : "* required or invalid";
     err.emailSecondary = !(values.emailSecondary) ? "" : (values.emailSecondary.match(emailFormat) ? "" : "invalid");
 
-    //const phoneNoFormat = /^\d{10}$/;
     const phoneNoFormat = /(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
     err.phoneMobileNo = (values.phoneMobileNo) && values.phoneMobileNo.match(phoneNoFormat) ? "" : "* required or invalid";
     err.phoneOfficeNo = !(values.phoneOfficeNo) ? "" : (values.phoneOfficeNo.match(phoneNoFormat) ? "" : "invalid");
@@ -141,6 +144,13 @@ const handelValidation = () => {
         <>
         <Form onSubmit = {handleSubmit}>
              <Grid container spacing={1}>
+
+                <Grid item xs={12}>
+                    <Alert 
+                        severity='info'>
+                        {alertMsg}
+                    </Alert>
+                </Grid>
 
                 <Grid item xs={12}>
 
@@ -330,7 +340,9 @@ const handelValidation = () => {
             {...{ 
                 setContactId,
                 setContactListVisibility,
-                resetFormControls
+                resetFormControls,
+                alertMsg,
+                setAlertMsg
             }}/>}
         >
         </Popup>

@@ -10,7 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 export default function VcardList(props) {
 
-    const { setContactId, setContactListVisibility, resetFormControls } = props;
+    const { setContactId, setContactListVisibility, resetFormControls, alertMsg, setAlertMsg } = props;
     const [ contactList, setContactList ] = useState([]);
     const [ filterContactList, setFilterContactList ] = useState([]);
     const [ searchKey, setSearchKey] = useState('');
@@ -23,7 +23,6 @@ export default function VcardList(props) {
         .then(res => {
             setContactList(res.data);
             setFilterContactList(res.data);
-            //getDistinctTags(res.data);
         })
         .catch(error => console.log(error))
     },[])
@@ -68,9 +67,9 @@ export default function VcardList(props) {
             .then(res => {
                 setContactListVisibility(false);
                 resetFormControls();
-                alert("Contact deleted successfully");
+                setAlertMsg("Contact deleted successfully");
             })
-            .catch(error => console.log(error))
+            .catch(error => setAlertMsg(error))
         }
     }
 
