@@ -1,6 +1,6 @@
-# topo-contact-app - Front-end Project
+# test-contact-app - Front-end Project
 
- The Topo Contact App solution is a stand-alone REST API project (.NET CORE API), and a front-end project (React).
+ The Test Contact App solution is a stand-alone REST API project (.NET CORE API), and a front-end project (React).
 
 ## App Details
 
@@ -24,7 +24,7 @@ npm install axios
 
 2 - Add-Migration & Update-Database
 
-3 - Seed Data for Tag table (Db Script attached (https://github.com/ruwanithanu/TopoContactAPI/blob/4049ff6a2a77235035e5c042a098f0de59c547aa/TopoDataRepository/Resources/DbScript.sql)
+3 - Seed Data for Tag table (Db Script attached (https://github.com/ruwanithanu/ContactAPI/blob/4049ff6a2a77235035e5c042a098f0de59c547aa/DataRepository/Resources/DbScript.sql)
 
 4 - Run API project in visual studio
 
@@ -33,7 +33,7 @@ npm install axios
 npm start run
 ```
 
-6- Import Sample Vcards (Attched in C:\git-repos\TopoContactAPI\TopoContactAPI\TopoDataRepository\Resources\)
+6- Import Sample Vcards (Attched in C:\git-repos\ContactAPI\ContactAPI\DataRepository\Resources\)
 
 
 ## Features
